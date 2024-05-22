@@ -74,36 +74,49 @@ public class JuegoController {
             equipoPoke[j] = null;
             fotos[j].setImage(new Image("file:.\\Imagenes\\pokeball.png"));
         }
-    }
-    @FXML
-    public void ataqueBasico()
-    {
+        Pokemon masRapido=masRapido(equipoPoke);
         
+        reordenarPorVelocidad(equipoPoke, masRapido);
+        actualizarImagenes(equipoPoke);
     }
-    /*public void compararVelocidadYPelea(Pokemon pokemon1, Pokemon pokemon2) {
-    if (pokemon1.getVelocidad() > pokemon2.getVelocidad()) {
-        pokemon1.atacar(pokemon2);
-        if (pokemon2.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
-            pokemon2.atacar(pokemon1);
-        }
-    } else if (pokemon1.getVelocidad() < pokemon2.getVelocidad()) {
-        pokemon2.atacar(pokemon1);
-        if (pokemon1.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
-            pokemon1.atacar(pokemon2);
-        }
-    } else {
-        // Si las velocidades son iguales, lanzar una moneda
-        if (Math.random() < 0.5) {
-            pokemon1.atacar(pokemon2);
-            if (pokemon2.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
-                pokemon2.atacar(pokemon1);
+    
+    private Pokemon masRapido(Pokemon [] pokemon)
+    {
+        Pokemon masRapido= pokemon[0];
+        for(int i =1; i<pokemon.length; i++)
+        {
+            if(pokemon[i].getVelocidad()>masRapido.getVelocidad())
+            {
+                masRapido=pokemon[i];
             }
-        } else {
-            pokemon2.atacar(pokemon1);
-            if (pokemon1.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
-                pokemon1.atacar(pokemon2);
+        } 
+        return masRapido;
+    }
+    private void reordenarPorVelocidad(Pokemon[] pokemons, Pokemon masRapido)
+    {
+        for (int i = 0; i < pokemons.length; i++) 
+        {
+            if (pokemons[i] != null && pokemons[i] == masRapido) 
+            {
+                // Intercambiamos el Pokémon más rápido con el Pokémon en la primera posición
+                Pokemon temp = pokemons[0];
+                pokemons[0] = pokemons[i];
+                pokemons[i] = temp;
+                break; // Terminamos el bucle después del intercambio
             }
         }
-    }*/
+    }
+    private void actualizarImagenes(Pokemon[] pokemon) 
+    {
+        ImageView[] fotos = {poke1, poke2, poke3, poke4, poke5, poke6};
+        for (int i = 0; i < pokemon.length; i++) 
+        {
+            if (pokemon[i] != null) 
+            {
+            // Actualizar la imagen en la posición correspondiente
+            fotos[i].setImage(new Image("file:.\\imagesPokemon\\" + pokemon[i].getId() + ".png"));
+            }
+        }
+    }
     
 }
