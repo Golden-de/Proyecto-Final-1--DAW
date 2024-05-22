@@ -102,7 +102,8 @@ public class SeleccionController {
         catch (Exception e) 
         {
             e.printStackTrace();
-        }    }
+        }    
+    }
     @FXML
     Button atras;
     @FXML

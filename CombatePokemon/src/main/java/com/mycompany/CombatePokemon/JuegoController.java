@@ -32,16 +32,19 @@ public class JuegoController {
         baseDeDatosControler bds;
         bds=new baseDeDatosControler();
         fondo.setImage(new Image("file:.\\Imagenes\\fondoCombate.png"));
+        
         Singleton sin = Singleton.getInstancia();
         String diff= sin.getdificultad();
         imageTux.setImage(new Image("file:.\\Imagenes\\tux.png"));
         tux= new Tux();
+        
         String entre= sin.getEntrenador();
         int idEntre= bds.idEntrenador(entre);
         List<Map<String,String>>equipo=bds.pokemonEntrenador(idEntre);
         
         Pokemon[] equipoPoke = new Pokemon[6];
         ImageView[] fotos= {poke1, poke2, poke3, poke4,poke5,poke6};
+        
         int i=0;
         for (Map<String, String> row : equipo)   
         {
@@ -54,6 +57,7 @@ public class JuegoController {
 
                 if (!pokes.isEmpty()) {
                     Map<String, String> raw = pokes.get(0); // Obtener el primer elemento si existe
+                    
                     int idPoke = Integer.parseInt(raw.get("ID_Pokemon"));
                     String nPoke = raw.get("Pokemon");
                     int vidaP = Integer.parseInt(raw.get("HP"));
@@ -62,6 +66,7 @@ public class JuegoController {
                     int atcEs = Integer.parseInt(raw.get("Special_Attack"));
                     int defensaESp = Integer.parseInt(raw.get("Special_Defense"));
                     int velo = Integer.parseInt(raw.get("Speed"));
+                    
                     equipoPoke[i]=new Pokemon(idPoke, nPoke,vidaP,atac,def,atcEs,defensaESp,velo, tipo); 
                     fotos[i].setImage(new Image("file:.\\imagesPokemon\\"+idPoke+".png"));
                 }   
@@ -74,24 +79,27 @@ public class JuegoController {
             equipoPoke[j] = null;
             fotos[j].setImage(new Image("file:.\\Imagenes\\pokeball.png"));
         }
-        Pokemon masRapido=masRapido(equipoPoke);
-        
-        reordenarPorVelocidad(equipoPoke, masRapido);
-        actualizarImagenes(equipoPoke);
+        if(equipo.size()>1)
+        {
+            Pokemon masRapido=masRapido(equipoPoke, equipo);
+            reordenarPorVelocidad(equipoPoke, masRapido);
+            actualizarImagenes(equipoPoke);
+        } 
     }
     
-    private Pokemon masRapido(Pokemon [] pokemon)
+    private Pokemon masRapido(Pokemon [] pokemon, List<Map<String, String>>equipo)
     {
         Pokemon masRapido= pokemon[0];
-        for(int i =1; i<pokemon.length; i++)
+        for(int i =1; i<equipo.size(); i++)
         {
-            if(pokemon[i].getVelocidad()>masRapido.getVelocidad())
+            if(pokemon[i].getVelocidad()>masRapido.getVelocidad() || pokemon[i]!=null)
             {
                 masRapido=pokemon[i];
             }
         } 
         return masRapido;
     }
+    
     private void reordenarPorVelocidad(Pokemon[] pokemons, Pokemon masRapido)
     {
         for (int i = 0; i < pokemons.length; i++) 
@@ -106,6 +114,7 @@ public class JuegoController {
             }
         }
     }
+    
     private void actualizarImagenes(Pokemon[] pokemon) 
     {
         ImageView[] fotos = {poke1, poke2, poke3, poke4, poke5, poke6};
