@@ -1,0 +1,60 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.CombatePokemon;
+
+/**
+ *
+ * @author Usuario
+ */
+public class Tux  extends Pokemon{
+    private int nivel, vida, ataque, ataqueEs, velocidad, defensa, defensaEs;
+    private String nombrePk= "Tux";
+    
+    
+    Tux()
+    {
+       Singleton sin =Singleton.getInstancia();
+       String diff= sin.getdificultad();
+        switch (diff) 
+        {
+            case "Pesadilla":
+                nivel=100;
+                vida=444;
+                ataque=372;
+                defensa=372;
+                ataqueEs=372;
+                defensaEs=372;
+                velocidad=372;   
+            break;
+            case "Veterano":
+                nivel=75;
+                vida=350;
+                ataque=220;
+                defensa=220;
+                ataqueEs=220;
+                defensaEs=220;
+                velocidad=220;
+            break;
+            case "Marine":
+                nivel=50;
+                vida=227;
+                ataque=189;
+                defensa=189;
+                ataqueEs=189;
+                defensaEs=189;
+                velocidad=189;
+            break;
+            case "Recluta":
+                nivel=25;
+                vida=180;
+                ataque=112;
+                defensa=112;
+                ataqueEs=112;
+                defensaEs=112;
+                velocidad=112;
+            break;
+        }   
+    }
+}

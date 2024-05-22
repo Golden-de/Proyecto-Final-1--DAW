@@ -1,0 +1,13 @@
+com\mycompany\CombatePokemon\App.class
+com\mycompany\CombatePokemon\entrenadoresController.class
+com\mycompany\CombatePokemon\Pokemon.class
+com\mycompany\CombatePokemon\comprobadorController.class
+com\mycompany\CombatePokemon\MenuController.class
+com\mycompany\CombatePokemon\Singleton.class
+com\mycompany\CombatePokemon\SeleccionController.class
+com\mycompany\CombatePokemon\Tux.class
+com\mycompany\CombatePokemon\InicioController.class
+module-info.class
+com\mycompany\CombatePokemon\JuegoController.class
+com\mycompany\CombatePokemon\baseDeDatosControler.class
+com\mycompany\CombatePokemon\PokedexController.class

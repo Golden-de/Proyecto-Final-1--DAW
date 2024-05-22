@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.CombatePokemon.JuegoController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <ImageView fx:id="fondo" fitHeight="317.0" fitWidth="567.0" layoutX="103.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../../../../../../Imagenes/fondoCombate.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="logs" editable="false" layoutX="-4.0" layoutY="407.0" prefHeight="73.0" prefWidth="640.0" />
+      <ImageView fx:id="poke1" fitHeight="99.0" fitWidth="132.0" layoutX="152.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke2" fitHeight="80.0" fitWidth="101.0" layoutX="42.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke3" fitHeight="80.0" fitWidth="101.0" layoutX="174.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="293.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="432.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke6" fitHeight="73.0" fitWidth="111.0" layoutX="502.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageTux" fitHeight="150.0" fitWidth="146.0" layoutX="426.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+   
+</Pane>
