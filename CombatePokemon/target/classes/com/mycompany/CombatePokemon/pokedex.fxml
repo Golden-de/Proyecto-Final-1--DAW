@@ -32,6 +32,7 @@
       <Label fx:id="ataqueEsp" layoutX="431.0" layoutY="205.0" />
       <Label fx:id="defensaEsp" layoutX="431.0" layoutY="232.0" />
       <Label fx:id="velocidad" layoutX="431.0" layoutY="260.0" />
+      <Label fx:id="tipo" layoutX="430.0" layoutY="293.0" />
    </children>
    
 </Pane>

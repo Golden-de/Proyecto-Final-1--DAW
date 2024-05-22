@@ -216,40 +216,42 @@ public class baseDeDatosControler {
       return listaPokemon;
       
     }
-        public List<Map<String,String>> tiposPoke(int idPokemon)
-        {
+    public Integer IDtipoPoke(String idPokemon)
+    {
         // Establecer la conexión a la base de datos
-        
+        int IDtipo= 0;
         List<Map<String, String>> listaTipos= new ArrayList<>();
         Connection conexion=realizarConexion();
         try  
         {
             
             // Consulta SQL para obtener Pokémon y sus tipos asociados
-            String consulta = "SELECT p.Nombre AS Pokemon, t.Type AS Tipo FROM Pokemon p JOIN Pokemon_Tipo pt ON p.ID_Pokemon = pt.ID_Pokemon JOIN Tipo t ON pt.ID_Tipo = t.ID_Tipo";
+            String consulta = "SELECT ID_Type from Rel_Pokemon_Type where ID_Pokemon ='" + idPokemon + "'";
 
             // Preparar la sentencia SQL
             PreparedStatement statement = conexion.prepareStatement(consulta);
 
             // Ejecutar la consulta
             ResultSet rs = statement.executeQuery();
-            listaTipos=obtenerDatos(rs,listaTipos);
+            if(rs.next())
+           {
+              IDtipo=rs.getInt("ID_Type");
+           }
             
         } catch (Exception e) {
             e.printStackTrace();
         }
         cerrarConexion(conexion);
         
-        return listaTipos;
-        
+        return IDtipo;
     }
     
-        public List<Map<String,String>> pokemonEntrenador(Integer ID_Entrenador)
+    public List<Map<String,String>> pokemonEntrenador(Integer ID_Entrenador)
+    {
+        Connection conexion= realizarConexion();
+        List<Map<String, String>> listaEquipo = new ArrayList<>();
+        try  
         {
-            Connection conexion= realizarConexion();
-            List<Map<String, String>> listaEquipo = new ArrayList<>();
-            try  
-            {
             
             // Consulta SQL para obtener los Pokémon de cada entrenador
             String consulta = "SELECT ID_Pokemon from Rel_Trainer_Pokemon where ID_Trainer =' "+ID_Entrenador+"'";
@@ -313,8 +315,7 @@ public class baseDeDatosControler {
             if(rs.next())
             {
                 id=rs.getInt("ID_Trainer");
-            }
-                
+            }         
         }
         catch(SQLException e)
         {
@@ -325,7 +326,30 @@ public class baseDeDatosControler {
         return id;
     }
     
-    
+    public String tipoPoke(int idtipo)
+    {
+        String tipo= "";
+        Connection conexion=realizarConexion();
+        String consulta="Select Type from  Types where ID_Type ='"+ idtipo+"'";
+      
+        try
+        {            
+            PreparedStatement statement=conexion.prepareStatement(consulta);
+            //S.e ejecuta la consulta
+            ResultSet rs= statement.executeQuery();
+            if(rs.next())
+            {
+                tipo=rs.getString("Type");
+            }         
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        cerrarConexion(conexion);
+        
+        return tipo;
+    }
 }
 
 

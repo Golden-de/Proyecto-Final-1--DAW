@@ -57,4 +57,39 @@ public class Tux  extends Pokemon{
             break;
         }   
     }
+    @Override
+    public String getNombre() {
+        
+        return nombrePk;
+    }
+
+    @Override
+    public int getHp() {
+        return vida;
+    }
+
+    @Override
+    public int getAtaque() {
+        return ataque;
+    }
+
+    @Override
+    public int getDefensa() {
+        return defensa;
+    }
+
+    @Override
+    public int getAtaqueEspecial() {
+        return ataqueEs;
+    }
+
+    @Override
+    public int getDefensaEspecial() {
+        return defensaEs;
+    }
+
+    @Override
+    public int getVelocidad() {
+        return velocidad;
+    }
 }

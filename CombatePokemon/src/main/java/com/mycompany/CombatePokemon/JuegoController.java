@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
  * @author usuario
  */
 public class JuegoController {
-    //Tux tux;
+    Tux tux;
     
     @FXML
     ImageView imageTux;
@@ -35,7 +35,7 @@ public class JuegoController {
         Singleton sin = Singleton.getInstancia();
         String diff= sin.getdificultad();
         imageTux.setImage(new Image("file:.\\Imagenes\\tux.png"));
-        Tux tux= new Tux();
+        tux= new Tux();
         String entre= sin.getEntrenador();
         int idEntre= bds.idEntrenador(entre);
         List<Map<String,String>>equipo=bds.pokemonEntrenador(idEntre);
@@ -48,6 +48,8 @@ public class JuegoController {
             if (i <= equipoPoke.length) 
             {
                 String idPk = row.get("ID_Pokemon");
+                int idTipo=bds.IDtipoPoke(idPk);
+                String tipo= bds.tipoPoke(idTipo);
                 List<Map<String, String>> pokes = bds.obtenerDatosPokemon(idPk);
 
                 if (!pokes.isEmpty()) {
@@ -60,16 +62,48 @@ public class JuegoController {
                     int atcEs = Integer.parseInt(raw.get("Special_Attack"));
                     int defensaESp = Integer.parseInt(raw.get("Special_Defense"));
                     int velo = Integer.parseInt(raw.get("Speed"));
-                    equipoPoke[i]=new Pokemon(idPoke, nPoke,vidaP,atac,def,atcEs,defensaESp,velo); 
+                    equipoPoke[i]=new Pokemon(idPoke, nPoke,vidaP,atac,def,atcEs,defensaESp,velo, tipo); 
                     fotos[i].setImage(new Image("file:.\\imagesPokemon\\"+idPoke+".png"));
                 }   
             }
             i++;
         }
         // Si el equipo tiene menos de 6 Pokémon, añadir imágenes de Pokéball vacía
-        for (int j = i; j < equipoPoke.length; j++) {
+        for (int j = i; j < equipoPoke.length; j++) 
+        {
             equipoPoke[j] = null;
             fotos[j].setImage(new Image("file:.\\Imagenes\\pokeball.png"));
+        }
     }
+    @FXML
+    public void ataqueBasico()
+    {
+        
     }
+    /*public void compararVelocidadYPelea(Pokemon pokemon1, Pokemon pokemon2) {
+    if (pokemon1.getVelocidad() > pokemon2.getVelocidad()) {
+        pokemon1.atacar(pokemon2);
+        if (pokemon2.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
+            pokemon2.atacar(pokemon1);
+        }
+    } else if (pokemon1.getVelocidad() < pokemon2.getVelocidad()) {
+        pokemon2.atacar(pokemon1);
+        if (pokemon1.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
+            pokemon1.atacar(pokemon2);
+        }
+    } else {
+        // Si las velocidades son iguales, lanzar una moneda
+        if (Math.random() < 0.5) {
+            pokemon1.atacar(pokemon2);
+            if (pokemon2.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
+                pokemon2.atacar(pokemon1);
+            }
+        } else {
+            pokemon2.atacar(pokemon1);
+            if (pokemon1.getHp() > 0) { // Si el Pokémon objetivo aún tiene vida, contraataca
+                pokemon1.atacar(pokemon2);
+            }
+        }
+    }*/
+    
 }

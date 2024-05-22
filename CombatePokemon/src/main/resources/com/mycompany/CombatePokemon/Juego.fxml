@@ -21,12 +21,12 @@
          </image>
       </ImageView>
       <TextArea fx:id="logs" editable="false" layoutX="-4.0" layoutY="407.0" prefHeight="73.0" prefWidth="640.0" />
-      <ImageView fx:id="poke1" fitHeight="99.0" fitWidth="132.0" layoutX="152.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke2" fitHeight="80.0" fitWidth="101.0" layoutX="42.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke3" fitHeight="80.0" fitWidth="101.0" layoutX="174.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="293.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="432.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke6" fitHeight="73.0" fitWidth="111.0" layoutX="502.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke1" fitHeight="95.0" fitWidth="114.0" layoutX="152.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke2" fitHeight="80.0" fitWidth="101.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke3" fitHeight="80.0" fitWidth="101.0" layoutX="161.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="293.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="416.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke6" fitHeight="73.0" fitWidth="111.0" layoutX="523.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imageTux" fitHeight="150.0" fitWidth="146.0" layoutX="426.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
    </children>
    

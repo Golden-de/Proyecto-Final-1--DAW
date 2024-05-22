@@ -32,7 +32,7 @@ public class PokedexController {
     @FXML
     ChoiceBox<String> c;
     @FXML
-    Label nombre, vida, ataque, defensa, ataqueEsp, defensaEsp, velocidad;
+    Label nombre, vida, ataque, defensa, ataqueEsp, defensaEsp, velocidad, tipo;
     @FXML
     Button atras;
     
@@ -64,22 +64,27 @@ public class PokedexController {
     { 
         baseDeDatosControler bds = new baseDeDatosControler();
         String npokemon = c.getValue();
+        String idpk;
         if (npokemon != null && !npokemon.isEmpty()) 
         {
             int nomPokemon = bds.obtenerID(npokemon);
-            if (nomPokemon != -1) {
-            String np = Integer.toString(nomPokemon);                
-            List<Map<String, String>> datosPok = bds.obtenerDatosPokemon(np);
-            datosPok(datosPok);
-        } 
-        else 
-        {
-            System.out.println("No se pudo obtener el ID del Pokémon: " + npokemon);
-        }
+            if (nomPokemon != -1) 
+            {
+                idpk =String.valueOf(nomPokemon);
+                int idTipo=bds.IDtipoPoke(idpk);
+                String tipo= bds.tipoPoke(idTipo);
+                String np = Integer.toString(nomPokemon);                
+                List<Map<String, String>> datosPok = bds.obtenerDatosPokemon(np);
+                datosPok(datosPok, tipo);
+            } 
+            else 
+            {
+                System.out.println("No se pudo obtener el ID del Pokémon: " + npokemon);
+            }
         }
     }
 
-    private void datosPok(List<Map<String, String>> datosPok) 
+    private void datosPok(List<Map<String, String>> datosPok, String t) 
     {
         for (Map<String, String> row : datosPok) 
         {
@@ -96,6 +101,7 @@ public class PokedexController {
                 ataqueEsp.setText("Ataque Especial: " + row.getOrDefault("Special_Attack", "Desconocido"));
                 defensaEsp.setText("Defensa Especial: " + row.getOrDefault("Special_Defense", "Desconocido"));
                 velocidad.setText("Velocidad: " + row.getOrDefault("Speed", "Desconocido"));
+                tipo.setText("Tipo: " + t);
             } 
             catch (NumberFormatException e) 
             {
