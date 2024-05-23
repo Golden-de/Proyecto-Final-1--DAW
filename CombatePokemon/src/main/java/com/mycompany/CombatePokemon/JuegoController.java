@@ -92,8 +92,10 @@ public class JuegoController {
         Pokemon masRapido= pokemon[0];
         for(int i =1; i<equipo.size(); i++)
         {
-            if(pokemon[i].getVelocidad()>masRapido.getVelocidad() || pokemon[i]!=null)
+            if(pokemon[i].getVelocidad()>masRapido.getVelocidad() && pokemon[i]!=null)
             {
+                int Vmasraoido1=pokemon[i].getVelocidad();
+                int Vmasraoido2=masRapido.getVelocidad();
                 masRapido=pokemon[i];
             }
         } 
@@ -122,10 +124,12 @@ public class JuegoController {
         {
             if (pokemon[i] != null) 
             {
-            // Actualizar la imagen en la posición correspondiente
-            fotos[i].setImage(new Image("file:.\\imagesPokemon\\" + pokemon[i].getId() + ".png"));
+                int id= pokemon[i].getId();
+                // Actualizar la imagen en la posición correspondiente
+                fotos[i].setImage(new Image("file:.\\imagesPokemon\\" + pokemon[i].getId() + ".png"));
             }
         }
     }
+    
     
 }

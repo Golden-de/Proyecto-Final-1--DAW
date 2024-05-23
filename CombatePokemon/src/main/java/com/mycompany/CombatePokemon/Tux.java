@@ -9,7 +9,7 @@ package com.mycompany.CombatePokemon;
  * @author Usuario
  */
 public class Tux  extends Pokemon{
-    private int nivel, vida, ataque, ataqueEs, velocidad, defensa, defensaEs;
+    private int nivel, vida, ataque, ataqueEs, velocidad, defensa, defensaEs, vidaMaxima;
     private String nombrePk= "Tux";
     
     
@@ -91,5 +91,14 @@ public class Tux  extends Pokemon{
     @Override
     public int getVelocidad() {
         return velocidad;
+    }
+    
+    public void setVidaMaxima()
+    {
+        vidaMaxima=vida;
+    }
+    public int getVidaMaxima()
+    {
+        return vidaMaxima;
     }
 }
