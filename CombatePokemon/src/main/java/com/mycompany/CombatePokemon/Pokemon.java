@@ -194,44 +194,7 @@ public class Pokemon {
         
         return tabla ;
     }
-    public double calcularEfectividad(String tipoObjetivo) 
-    {
-        int indiceAtaque = obtenerIndiceTipo(tipo);
-        int indiceObjetivo = obtenerIndiceTipo(tipoObjetivo);
-        double[][] tablaTipos = TablaTipos();
-        return tablaTipos[indiceAtaque][indiceObjetivo];
-    }
-    private int obtenerIndiceTipo(String tipo) {
-        switch (tipo.toLowerCase()) {
-            case "normal": return 0;
-            case "fighting": return 1;
-            case "flying": return 2;
-            case "poison": return 3;
-            case "ground": return 4;
-            case "rock": return 5;
-            case "bug": return 6;
-            case "ghost": return 7;
-            case "steel": return 8;
-            case "fire": return 9;
-            case "water": return 10;
-            case "grass": return 11;
-            case "electric": return 12;
-            case "psychic": return 13;
-            case "ice": return 14;
-            case "dragon": return 15;
-            case "dark": return 16;
-            default: return 0;
-        }
-    }
-    public int dano(Pokemon objetivo, int poder, boolean esEspecial) 
-    {
-        double ataqueUsado = esEspecial ? this.ataqueEs : this.ataque;
-        double defensaUsada = esEspecial ? objetivo.defensaEs : objetivo.defensa;
-        double bonificacion = 1.0; // No STAB en esta versión simplificada
-        double efectividad = calcularEfectividad(objetivo.tipo);
-        double valorAleatorio = 0.85 + Math.random() * 0.15; // valor aleatorio entre 0.85 y 1.00
-
-        double dano = (((2 * this.nivel / 5.0 + 2) * poder * ataqueUsado / defensaUsada) / 50 + 2) * bonificacion * efectividad * valorAleatorio;
-        return (int) dano;
-    }
+    
+   
+    
 }

@@ -11,12 +11,16 @@ package com.mycompany.CombatePokemon;
 public class Tux  extends Pokemon{
     private int nivel, vida, ataque, ataqueEs, velocidad, defensa, defensaEs, vidaMaxima;
     private String nombrePk= "Tux";
-    
+    private String tipo=" ";
     
     Tux()
     {
        Singleton sin =Singleton.getInstancia();
        String diff= sin.getdificultad();
+        baseDeDatosControler bds= new baseDeDatosControler();
+        
+        int tTux= (int) (Math.random()*17);
+        tipo=bds.tipoPoke(tTux);
         switch (diff) 
         {
             case "Pesadilla":
@@ -26,7 +30,8 @@ public class Tux  extends Pokemon{
                 defensa=372;
                 ataqueEs=372;
                 defensaEs=372;
-                velocidad=372;   
+                velocidad=372;
+                
             break;
             case "Veterano":
                 nivel=75;
@@ -55,7 +60,7 @@ public class Tux  extends Pokemon{
                 defensaEs=112;
                 velocidad=112;
             break;
-        }   
+        } 
     }
     @Override
     public String getNombre() {
@@ -100,5 +105,15 @@ public class Tux  extends Pokemon{
     public int getVidaMaxima()
     {
         return vidaMaxima;
+    }
+    
+    public void setTipo()
+    {
+       
+    }
+    
+    public String getTipo()
+    {
+        return tipo;
     }
 }

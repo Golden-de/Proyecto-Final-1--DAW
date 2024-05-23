@@ -350,6 +350,35 @@ public class baseDeDatosControler {
         
         return tipo;
     }
+    public Integer IDtipoTux(int tTux)
+    {
+        // Establecer la conexión a la base de datos
+        int IDtipo= 0;
+        List<Map<String, String>> listaTipos= new ArrayList<>();
+        Connection conexion=realizarConexion();
+        try  
+        {
+            
+            // Consulta SQL para obtener Pokémon y sus tipos asociados
+            String consulta = "SELECT ID_Type from Rel_Pokemon_Type where ID_Pokemon ='" + tTux + "'";
+
+            // Preparar la sentencia SQL
+            PreparedStatement statement = conexion.prepareStatement(consulta);
+
+            // Ejecutar la consulta
+            ResultSet rs = statement.executeQuery();
+            if(rs.next())
+           {
+              IDtipo=rs.getInt("ID_Type");
+           }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        cerrarConexion(conexion);
+        
+        return IDtipo;
+    }
 }
 
 
