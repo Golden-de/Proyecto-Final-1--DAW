@@ -142,6 +142,7 @@ public class JuegoController {
         if (pokemon != null) 
         {
             ObservableList<String> items = FXCollections.observableArrayList(
+                "Nivel: "+ pokemon.getNivel(),
                 "ID: " + pokemon.getId(),
                 "Nombre: " + pokemon.getNombre(),
                 "HP: " + pokemon.getHp(),
@@ -160,6 +161,7 @@ public class JuegoController {
         if (tux != null) 
         {
             ObservableList<String> items = FXCollections.observableArrayList(
+                "Nivel: "+ tux.getNivel(),
                 "ID: " + tux.getId(),
                 "Nombre: " + tux.getNombre(),
                 "HP: " + tux.getHp(),

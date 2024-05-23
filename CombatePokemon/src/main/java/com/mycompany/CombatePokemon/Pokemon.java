@@ -20,17 +20,69 @@ public class Pokemon {
     Pokemon(int i, String n, int hp, int at, int atEs, int def, int defEs, int vel, String t)
     {
         Singleton sin= Singleton.getInstancia();
-        id = i;
-        nombrePk = n;
-        vida = hp;
-        ataque = at;
-        defensa = def;
-        ataqueEs = atEs;
-        defensaEs = defEs;
-        velocidad = vel;
-        tipo=t;
+        String diff =sin.getdificultad();
+        switch(diff)
+        {
+            case "Pesadilla":
+                nivel= 1+ (int)(Math.random()*24);
+                double mejora =(nivel- 1)/24.0;
+                id = i;
+                nombrePk = n;
+                vida = (int)(hp*  (1+ mejora));
+                ataque = (int)(at* (1+ mejora));
+                defensa = (int)(def* (1+ mejora));
+                ataqueEs = (int)(atEs* (1+ mejora));
+                defensaEs = (int)(defEs*(1+ mejora));
+                velocidad = (int)(vel*(1+ mejora));
+                tipo=t;
+            break;
+            case "Veterano":
+                nivel=25+ (int)(Math.random()*26);
+                mejora= (nivel-1)/25.0;
+                id = i;
+                nombrePk = n;
+                vida = (int)(hp*  (1+ mejora));
+                ataque = (int)(at*  (1+ mejora));
+                defensa = (int)(def*  (1+ mejora));
+                ataqueEs = (int)(atEs*  (1+ mejora));
+                defensaEs = (int)(defEs*  (1+ mejora));
+                velocidad = (int)(vel*  (1+ mejora));
+                tipo=t;
+            break;
+            case "Recluta":
+                nivel=50+ (int)(Math.random()*25);
+                mejora= (nivel-1)/24.0;
+                id = i;
+                nombrePk = n;
+                vida = (int)(hp*  (1+ mejora));
+                ataque = (int)(at*  (1+ mejora));
+                defensa = (int)(def*  (1+ mejora));
+                ataqueEs = (int)(atEs*  (1+ mejora));
+                defensaEs = (int)(defEs*  (1+ mejora));
+                velocidad = (int)(vel*  (1+ mejora));
+                tipo=t;
+            break;
+            case "Marine":
+                nivel=75+ (int)(Math.random()*25);
+                mejora= (nivel-1)/24.0;
+                id = i;
+                nombrePk = n;
+                vida = (int)(hp*  (1+ mejora));
+                ataque = (int)(at*  (1+ mejora));
+                defensa = (int)(def*  (1+ mejora));
+                ataqueEs = (int)(atEs*  (1+ mejora));
+                defensaEs = (int)(defEs*  (1+ mejora));
+                velocidad = (int)(vel*  (1+ mejora));
+                tipo=t;
+            break;
+        }
+        
     }
         // Getters
+    public int getNivel()
+    {
+        return nivel;
+    }
     public int getId() {
         return id;
     }
@@ -66,7 +118,11 @@ public class Pokemon {
     {
         return tipo;
     }
- 
+    
+    public void restarVida(int dañoRecibido)
+    {
+        vida=-dañoRecibido;
+    }
     private double[][] TablaTipos()
     {
         double[][] tabla = new double [18][18];

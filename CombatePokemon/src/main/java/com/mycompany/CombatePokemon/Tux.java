@@ -63,6 +63,11 @@ public class Tux  extends Pokemon{
         } 
     }
     @Override
+    public int getNivel()
+    {
+        return nivel;
+    }
+    @Override
     public String getNombre() {
         
         return nombrePk;
