@@ -6,7 +6,10 @@ package com.mycompany.CombatePokemon;
 
 import java.util.List;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -23,7 +26,8 @@ public class JuegoController {
     ImageView fondo;
     @FXML
     ImageView poke1, poke2, poke3, poke4,poke5,poke6;
-    
+    @FXML
+    ListView <String> statsEquipo, statstux;
     
     
     @FXML
@@ -85,6 +89,8 @@ public class JuegoController {
             reordenarPorVelocidad(equipoPoke, masRapido);
             actualizarImagenes(equipoPoke);
         } 
+        datosPokemonCombate(equipoPoke[0]);
+        datosTuxCombate(tux);
     }
     
     private Pokemon masRapido(Pokemon [] pokemon, List<Map<String, String>>equipo)
@@ -131,5 +137,40 @@ public class JuegoController {
         }
     }
     
-    
+    public void datosPokemonCombate(Pokemon pokemon) 
+    {
+        if (pokemon != null) 
+        {
+            ObservableList<String> items = FXCollections.observableArrayList(
+                "ID: " + pokemon.getId(),
+                "Nombre: " + pokemon.getNombre(),
+                "HP: " + pokemon.getHp(),
+                "Ataque: " + pokemon.getAtaque(),
+                "Defensa: " + pokemon.getDefensa(),
+                "Ataque Especial: " + pokemon.getAtaqueEspecial(),
+                "Defensa Especial: " + pokemon.getDefensaEspecial(),
+                "Velocidad: " + pokemon.getVelocidad(),
+                "Tipo: " + pokemon.getTipo()
+            );
+            statsEquipo.setItems(items);
+        }
+    }
+    public void datosTuxCombate(Tux tux) 
+    {
+        if (tux != null) 
+        {
+            ObservableList<String> items = FXCollections.observableArrayList(
+                "ID: " + tux.getId(),
+                "Nombre: " + tux.getNombre(),
+                "HP: " + tux.getHp(),
+                "Ataque: " + tux.getAtaque(),
+                "Defensa: " + tux.getDefensa(),
+                "Ataque Especial: " + tux.getAtaqueEspecial(),
+                "Defensa Especial: " + tux.getDefensaEspecial(),
+                "Velocidad: " + tux.getVelocidad(),
+                "Tipo: " + tux.getTipo()
+            );
+            statstux.setItems(items);
+        }
+    }
 }
