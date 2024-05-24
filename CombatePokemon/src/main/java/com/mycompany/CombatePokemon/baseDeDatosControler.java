@@ -350,6 +350,30 @@ public class baseDeDatosControler {
         
         return tipo;
     }
+    public Integer nombretipo(String ntipo)
+    {
+        int idTipo=0; 
+        Connection conexion=realizarConexion();
+        String consulta="Select ID_Type from  Types where Type ='"+ ntipo+"'";
+      
+        try
+        {            
+            PreparedStatement statement=conexion.prepareStatement(consulta);
+            //S.e ejecuta la consulta
+            ResultSet rs= statement.executeQuery();
+            if(rs.next())
+            {
+                idTipo=rs.getInt("ID_Type");
+            }         
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        cerrarConexion(conexion);
+        
+        return idTipo;
+    }
     public Integer IDtipoTux(int tTux)
     {
         // Establecer la conexión a la base de datos

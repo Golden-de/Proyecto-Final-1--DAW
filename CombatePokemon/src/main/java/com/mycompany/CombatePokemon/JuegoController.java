@@ -9,6 +9,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,7 +20,8 @@ import javafx.scene.image.ImageView;
  */
 public class JuegoController {
     Tux tux;
-    
+    @FXML
+    Button ataqueBasico;
     @FXML
     ImageView imageTux;
     @FXML
@@ -28,7 +30,7 @@ public class JuegoController {
     ImageView poke1, poke2, poke3, poke4,poke5,poke6;
     @FXML
     ListView <String> statsEquipo, statstux;
-    
+    Pokemon[] equipoPoke;
     
     @FXML
     private void initialize()
@@ -46,7 +48,7 @@ public class JuegoController {
         int idEntre= bds.idEntrenador(entre);
         List<Map<String,String>>equipo=bds.pokemonEntrenador(idEntre);
         
-        Pokemon[] equipoPoke = new Pokemon[6];
+        equipoPoke = new Pokemon[6];
         ImageView[] fotos= {poke1, poke2, poke3, poke4,poke5,poke6};
         
         int i=0;
@@ -175,4 +177,16 @@ public class JuegoController {
             statstux.setItems(items);
         }
     }
+    @FXML
+    public void ataque()
+    {
+        int defensa= tux.getDefensa();
+        String tipoTux= tux.getTipo();
+        int daño= equipoPoke[0].ataqueBasico(defensa,tipoTux );
+        tux.recibirdaño(daño);
+        System.out.println(daño);
+        System.out.println(tux.getHp());
+        datosTuxCombate(tux);
+    }
+    
 }

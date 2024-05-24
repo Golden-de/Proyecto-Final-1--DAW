@@ -123,7 +123,20 @@ public class Pokemon {
     {
         vida=-dañoRecibido;
     }
-    private double[][] TablaTipos()
+    
+    public Integer ataqueBasico(int defensaR, String tipoRival)
+    {
+        baseDeDatosControler bds= new baseDeDatosControler();
+        double[][] tablaTipos= tablaTipos();
+        int idtipo=bds.nombretipo(tipo);
+        int idTipoRival=bds.nombretipo(tipoRival);
+        
+        double efectividad=tablaTipos[idtipo][idTipoRival];
+        int dEnemigo= defensaR;
+        int daño = (int) (((2 * this.nivel / 5 + 2) * ataque * efectividad / dEnemigo) / 50) + 2;
+        return daño;
+    }
+    private double[][] tablaTipos()
     {
         double[][] tabla = new double [18][18];
         for( int i=0;i<18;i++)

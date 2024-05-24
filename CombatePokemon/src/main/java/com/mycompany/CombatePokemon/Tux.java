@@ -111,14 +111,15 @@ public class Tux  extends Pokemon{
     {
         return vidaMaxima;
     }
-    
-    public void setTipo()
-    {
-       
-    }
-    
+     
+    @Override
     public String getTipo()
     {
         return tipo;
+    }
+    
+    public void recibirdaño(int dañoRecibido)
+    {
+       vida=-dañoRecibido;
     }
 }
