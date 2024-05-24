@@ -120,6 +120,6 @@ public class Tux  extends Pokemon{
     
     public void recibirdaño(int dañoRecibido)
     {
-       vida=-dañoRecibido;
+       vida-=dañoRecibido;
     }
 }
