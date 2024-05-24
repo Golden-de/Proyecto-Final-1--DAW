@@ -51,6 +51,8 @@ public class JuegoController {
         equipoPoke = new Pokemon[6];
         ImageView[] fotos= {poke1, poke2, poke3, poke4,poke5,poke6};
         
+        
+        
         int i=0;
         for (Map<String, String> row : equipo)   
         {
@@ -102,8 +104,6 @@ public class JuegoController {
         {
             if(pokemon[i].getVelocidad()>masRapido.getVelocidad() && pokemon[i]!=null)
             {
-                int Vmasraoido1=pokemon[i].getVelocidad();
-                int Vmasraoido2=masRapido.getVelocidad();
                 masRapido=pokemon[i];
             }
         } 
@@ -177,6 +177,7 @@ public class JuegoController {
             statstux.setItems(items);
         }
     }
+    
     @FXML
     public void ataque() 
     {
@@ -218,6 +219,7 @@ public class JuegoController {
                 datosPokemonCombate(equipoPoke[0]); // Actualiza la vista del Pokémon después de recibir daño
             }
         }
+        tuxMuerto();
     }
     @FXML
     public void ataqueEspecial() {
@@ -237,7 +239,9 @@ public class JuegoController {
                 tux.restarVida(daño);
                 datosTuxCombate(tux); // Actualiza la vista de Tux después de recibir daño
             }
-        } else {
+        } 
+        else 
+       {
             // El Pokémon ataca primero con ataque especial
             int defensaTux = tux.getDefensaEspecial();
             String tipoTux = tux.getTipo();
@@ -246,7 +250,8 @@ public class JuegoController {
             datosTuxCombate(tux); // Actualiza la vista de Tux después de recibir daño
 
             // Verifica si Tux sigue vivo antes de contraatacar
-            if (tux.getHp() > 0) {
+            if (tux.getHp() > 0) 
+            {
                 int defensaPoke = equipoPoke[0].getDefensaEspecial();
                 String tipoPoke = equipoPoke[0].getTipo();
                 daño = tux.ataqueEspecial(defensaPoke, tipoPoke);
@@ -254,5 +259,19 @@ public class JuegoController {
                 datosPokemonCombate(equipoPoke[0]); // Actualiza la vista del Pokémon después de recibir daño
             }
         }
+        tuxMuerto();
     }
+    private void tuxMuerto()
+    {
+       if(tux.estaMuerto()== true)
+        {
+            System.out.println("has derrotado a tux" + "/n");
+            System.out.println("!!!!!tux esta reviviendo¡¡¡¡¡¡" + "/n");
+            tux=new Tux();
+            System.out.println("TUX HA REVIVIDO" + "/n");
+            datosTuxCombate(tux);
+        } 
+    }
+    
+
 }

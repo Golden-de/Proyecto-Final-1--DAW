@@ -278,6 +278,8 @@ public class Pokemon {
         return tabla ;
     }
     
-   
-    
+   public boolean estaMuerto() 
+   {
+    return vida <= 0;
+   }
 }
