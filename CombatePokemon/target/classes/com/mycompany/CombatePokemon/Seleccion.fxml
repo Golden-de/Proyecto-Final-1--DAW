@@ -26,7 +26,7 @@
       <Button fx:id="atras" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" onAction="#Atras" prefHeight="25.0" prefWidth="89.0" text="Atras" />
       <TextArea fx:id="logs" editable="false" layoutX="7.0" layoutY="363.0" prefHeight="110.0" prefWidth="629.0" />
       <ChoiceBox fx:id="Dificultad" layoutX="469.0" layoutY="28.0" prefWidth="150.0" />
-      <Button fx:id="Normas" layoutX="33.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Normas" />
+      <Button fx:id="Normas" layoutX="33.0" layoutY="28.0" mnemonicParsing="false" onAction="#Entrar" prefHeight="25.0" prefWidth="89.0" text="Normas" />
       <ChoiceBox fx:id="entrenadores" layoutX="460.0" layoutY="310.0" prefWidth="150.0" />
       <Button fx:id="empezar" layoutX="220.0" layoutY="148.0" mnemonicParsing="false" onAction="#juego" prefHeight="92.0" prefWidth="175.0" text="Empezar Partida">
          <font>

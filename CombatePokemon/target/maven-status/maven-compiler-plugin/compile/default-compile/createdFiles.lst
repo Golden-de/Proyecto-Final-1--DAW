@@ -1,6 +1,7 @@
 com\mycompany\CombatePokemon\App.class
 com\mycompany\CombatePokemon\entrenadoresController.class
 com\mycompany\CombatePokemon\Pokemon.class
+com\mycompany\CombatePokemon\normasController.class
 com\mycompany\CombatePokemon\comprobadorController.class
 com\mycompany\CombatePokemon\MenuController.class
 com\mycompany\CombatePokemon\Singleton.class

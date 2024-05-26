@@ -31,8 +31,6 @@ public class SeleccionController {
     @FXML
     ChoiceBox<String> Dificultad;
     @FXML
-    Button normas;
-    @FXML
     ChoiceBox<String>entrenadores;
     @FXML
     ImageView fondo;
@@ -129,5 +127,29 @@ public class SeleccionController {
             e.printStackTrace();
         }
     }
-   
+   @FXML
+    Button Normas;
+    @FXML
+    private void Entrar(ActionEvent event)
+    {
+        //abre la nueva ventana cerrando la principal
+        try 
+        {
+            // Cargar la nueva ventana
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Normas.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+            // Obtener la referencia a la ventana actual
+            stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            // Cerrar la ventana
+            stage.close();
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
 }
