@@ -44,6 +44,13 @@ public class JuegoController {
         imageTux.setImage(new Image("file:.\\Imagenes\\tux.png"));
         tux= new Tux();
         
+        cambioImagen(poke1, 0);
+        cambioImagen(poke2, 1);
+        cambioImagen(poke3, 2);
+        cambioImagen(poke4, 3);
+        cambioImagen(poke5, 4);
+        cambioImagen(poke6, 5);
+        
         String entre= sin.getEntrenador();
         int idEntre= bds.idEntrenador(entre);
         List<Map<String,String>>equipo=bds.pokemonEntrenador(idEntre);
@@ -188,5 +195,26 @@ public class JuegoController {
         System.out.println(tux.getHp());
         datosTuxCombate(tux);
     }
-    
+    @FXML 
+    private void cambioImagen(ImageView imageView, int indice) {
+        imageView.setOnMouseClicked(event -> {
+            // Verificar si hay un Pokémon en esa posición del equipo
+            if (equipoPoke != null && indice < equipoPoke.length && equipoPoke[indice] != null) {
+                cambiarPokemon(indice);
+            }
+        });
+    }
+
+    private void cambiarPokemon(int indice) {
+        // Mover el Pokémon seleccionado al frente del equipo
+        Pokemon seleccionado = equipoPoke[indice];
+        for (int i = indice; i > 0; i--) {
+            equipoPoke[i] = equipoPoke[i - 1];
+        }
+        equipoPoke[0] = seleccionado;
+
+        // Actualizar imágenes y datos del Pokémon en combate
+        actualizarImagenes(equipoPoke);
+        datosPokemonCombate(equipoPoke[0]);
+    }
 }
