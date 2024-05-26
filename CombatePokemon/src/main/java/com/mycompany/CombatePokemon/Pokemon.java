@@ -132,8 +132,22 @@ public class Pokemon {
         int idTipoRival=bds.nombretipo(tipoRival);
         
         double efectividad=tablaTipos[idtipo][idTipoRival];
+        int dEnemigoEs= defensaR;
+        int v = 85 + (int)(Math.random() * 16);        
+        int daño = (int) (0.1*1*efectividad*v*(((0.2*nivel+1)*ataqueEs)/(25 *dEnemigoEs)+2));
+        return daño;
+    }
+     public Integer ataqueEspecial(int defensaR, String tipoRival)
+    {
+        baseDeDatosControler bds= new baseDeDatosControler();
+        double[][] tablaTipos= tablaTipos();
+        int idtipo=bds.nombretipo(tipo);
+        int idTipoRival=bds.nombretipo(tipoRival);
+        
+        double efectividad=tablaTipos[idtipo][idTipoRival];
         int dEnemigo= defensaR;
-        int daño = (int) (((2 * this.nivel / 5 + 2) * ataque * efectividad / dEnemigo) / 50) + 2;
+        int v = 85 + (int)(Math.random() * 16);        
+        int daño = (int) (0.1*1*efectividad*v*(((0.2*nivel+1)*ataque)/(25 *dEnemigo)+2));
         return daño;
     }
     private double[][] tablaTipos()
@@ -264,6 +278,8 @@ public class Pokemon {
         return tabla ;
     }
     
-   
-    
+   public boolean estaMuerto() 
+   {
+    return vida <= 0;
+   }
 }
