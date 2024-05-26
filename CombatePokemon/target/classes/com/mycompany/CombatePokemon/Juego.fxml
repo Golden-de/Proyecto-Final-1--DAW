@@ -23,12 +23,12 @@
          </image>
       </ImageView>
       <TextArea fx:id="logs" editable="false" layoutX="65.0" layoutY="480.0" prefHeight="73.0" prefWidth="640.0" />
-      <ImageView fx:id="poke1" fitHeight="150.0" fitWidth="146.0" layoutX="212.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke2" fitHeight="80.0" fitWidth="101.0" layoutX="15.0" layoutY="342.0" onMouseDragEntered="#configurarManejadores" onMouseDragExited="#limpiarEstadisticas" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke3" fitHeight="80.0" fitWidth="101.0" layoutX="162.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="294.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="417.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="poke6" fitHeight="86.0" fitWidth="118.0" layoutX="539.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke1" fitHeight="150.0" fitWidth="146.0" layoutX="212.0" layoutY="171.0" onMouseClicked="#cambiarPokemon1" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke2" fitHeight="80.0" fitWidth="101.0" layoutX="15.0" layoutY="342.0" onMouseClicked="#cambiarPokemon2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke3" fitHeight="80.0" fitWidth="101.0" layoutX="162.0" layoutY="342.0" onMouseClicked="#cambiarPokemon3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="294.0" layoutY="342.0" onMouseClicked="#cambiarPokemon4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="417.0" layoutY="342.0" onMouseClicked="#cambiarPokemon5" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="poke6" fitHeight="86.0" fitWidth="118.0" layoutX="539.0" layoutY="339.0" onMouseClicked="#cambiarPokemon6" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imageTux" fitHeight="150.0" fitWidth="146.0" layoutX="490.0" layoutY="88.0" onMouseClicked="#cambioImagen" pickOnBounds="true" preserveRatio="true" />
       <ListView fx:id="statsEquipo" layoutX="15.0" layoutY="88.0" prefHeight="233.0" prefWidth="139.0" />
       <ListView fx:id="statstux" layoutX="697.0" layoutY="21.0" prefHeight="233.0" prefWidth="126.0" />

@@ -273,5 +273,46 @@ public class JuegoController {
         } 
     }
     
+    @FXML
+    public void cambiarPokemon1() {
+        cambiarPokemon(0);
+    }
 
+    @FXML
+    public void cambiarPokemon2() {
+        cambiarPokemon(1);
+    }
+
+    @FXML
+    public void cambiarPokemon3() {
+        cambiarPokemon(2);
+    }
+
+    @FXML
+    public void cambiarPokemon4() {
+        cambiarPokemon(3);
+    }
+
+    @FXML
+    public void cambiarPokemon5() {
+        cambiarPokemon(4);
+    }
+
+    @FXML
+    public void cambiarPokemon6() {
+        cambiarPokemon(5);
+    }
+
+    private void cambiarPokemon(int indice) {
+        if (equipoPoke != null && indice < equipoPoke.length && equipoPoke[indice] != null) {
+            Pokemon seleccionado = equipoPoke[indice];
+            for (int i = indice; i > 0; i--) {
+                equipoPoke[i] = equipoPoke[i - 1];
+            }
+            equipoPoke[0] = seleccionado;
+
+            actualizarImagenes(equipoPoke);
+            datosPokemonCombate(equipoPoke[0]);
+        }
+    }
 }
