@@ -121,7 +121,7 @@ public class Pokemon {
     
     public void restarVida(int dañoRecibido)
     {
-        vida=-dañoRecibido;
+        vida=vida -dañoRecibido;
     }
     
     public Integer ataqueBasico(int defensaR, String tipoRival)
@@ -278,8 +278,13 @@ public class Pokemon {
         return tabla ;
     }
     
-   public boolean estaMuerto() 
+   protected boolean estaMuerto() 
    {
-    return vida <= 0;
+       boolean estado=true;
+       if (vida <= 0)
+        {
+            estado=false;
+        }
+    return estado;
    }
 }

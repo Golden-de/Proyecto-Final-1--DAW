@@ -29,7 +29,7 @@
       <ImageView fx:id="poke4" fitHeight="80.0" fitWidth="101.0" layoutX="294.0" layoutY="342.0" onMouseClicked="#cambiarPokemon4" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="poke5" fitHeight="80.0" fitWidth="101.0" layoutX="417.0" layoutY="342.0" onMouseClicked="#cambiarPokemon5" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="poke6" fitHeight="86.0" fitWidth="118.0" layoutX="539.0" layoutY="339.0" onMouseClicked="#cambiarPokemon6" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageTux" fitHeight="150.0" fitWidth="146.0" layoutX="490.0" layoutY="88.0" onMouseClicked="#cambioImagen" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageTux" fitHeight="150.0" fitWidth="146.0" layoutX="490.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
       <ListView fx:id="statsEquipo" layoutX="15.0" layoutY="88.0" prefHeight="233.0" prefWidth="139.0" />
       <ListView fx:id="statstux" layoutX="697.0" layoutY="21.0" prefHeight="233.0" prefWidth="126.0" />
       <Button fx:id="ataqueBasico" layoutX="473.0" layoutY="246.0" mnemonicParsing="false" onAction="#ataque" text="Ataque Basico" />
