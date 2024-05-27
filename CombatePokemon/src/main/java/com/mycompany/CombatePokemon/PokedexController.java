@@ -34,7 +34,7 @@ public class PokedexController {
     @FXML
     Label nombre, vida, ataque, defensa, ataqueEsp, defensaEsp, velocidad, tipo;
     @FXML
-    Button atras;
+    Button atras,daño;
     
    @FXML
     private void initialize()
@@ -117,6 +117,29 @@ public class PokedexController {
         {
             // Cargar la nueva ventana
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+            // Obtener la referencia a la ventana actual
+            stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            // Cerrar la ventana
+            stage.close();
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void entrar(ActionEvent event)
+    {
+        //abre la nueva ventana cerrando la principal
+        try 
+        {
+            // Cargar la nueva ventana
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CalculadoraDeDaño.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setScene(scene);

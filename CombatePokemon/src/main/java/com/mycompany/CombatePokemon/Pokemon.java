@@ -123,6 +123,14 @@ public class Pokemon {
     {
         vida=vida -dañoRecibido;
     }
+    public Integer daño(int defensaR, int ata,int efect, int da, int valor)
+    {
+        double efectividad=efect;
+        int dEnemigoEs= defensaR;
+        int v = 85 + (int)(Math.random() * 16);        
+        int daño = (int) (0.1*1*efectividad*v*(((0.2*nivel+1)*ataqueEs)/(25 *dEnemigoEs)+2));
+        return daño;
+    }
     
     public Integer ataqueBasico(int defensaR, String tipoRival)
     {
